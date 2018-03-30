@@ -12,6 +12,10 @@ A software application that applies Microservices architecture
     - Look at how to add plugin to Kong
     - Go through https://getkong.org/docs/0.10.x/plugin-development/distribution/
     - Learn Kong, Docker, Spring framework
+- Nanaa:
+    - Implement finance API in spring
+    - Go through http://eventuate.io/exampleapps.html
+    - Learn Eventuate, Spring, AWS
 
 ## AWS
 
