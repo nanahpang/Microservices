@@ -27,3 +27,4 @@ A software application that applies Microservices architecture
 - Adding docker to AWS: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html
 - Adding an API to Kong: https://getkong.org/docs/0.5.x/getting-started/adding-your-api/
 - Spring project example repo: https://github.com/cloudframeworks-apigateway/springdata
+- Eventuate example: http://eventuate.io/exampleapps.html
