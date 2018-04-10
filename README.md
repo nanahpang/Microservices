@@ -1,3 +1,7 @@
+# Eventuate sample
+https://github.com/eventuate-examples/eventuate-examples-java-customers-and-orders
+# Eventuate slide
+https://www.slideshare.net/chris.e.richardson/a-pattern-language-for-microservices-gluecon-2016
 # Presentation
 https://docs.google.com/presentation/d/1UEZdzA1ftTM6Hj4YYuEuLEDKDaULurmaftdiqi5Ea2k/edit?usp=sharing
 # ACIDBrain
