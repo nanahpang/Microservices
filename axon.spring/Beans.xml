@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<bean id="myGateway" class="org.axonframework.commandhandling.gateway.CommandGatewayFactoryBean">
-    <property name="commandBus" ref="commandBus"/>
-    <property name="gatewayInterface" value="package.to.MyGateway"/>
-</bean>
