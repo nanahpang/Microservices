@@ -1,0 +1,68 @@
+1.createCustomerRequest:
+curl -X POST --header "Content-Type: application/json" --header "Accept: */*" -d "{
+  \"creditLimit\": {
+    \"amount\": 100
+  },
+  \"name\": \"test01\"
+}" "http://192.168.224.128:8081/customers"
+response body:
+{
+  "customerId": "00000162ef0bac72-0242ac1200070000"
+}
+2.get customerId:
+curl -X GET --header "Accept: */*" "http://192.168.224.128:8081/customers/00000162ef0bac72-0242ac1200070000"
+response body:
+{
+  "customerId": "00000162ef0bac72-0242ac1200070000",
+  "creditLimit": {
+    "amount": 100
+  },
+  "money": {
+    "amount": 100
+  }
+}
+3.createOrderRequest:
+curl -X POST --header "Content-Type: application/json" --header "Accept: */*" -d "{
+  \"customerId\": \"00000162ef0bac72-0242ac1200070000\",
+  \"orderTotal\": {
+    \"amount\": 10
+  }
+}" "http://192.168.224.128:8083/orders"
+response body:
+{
+  "orderId": "00000162ef0c9a61-0242ac1200090000"
+}
+4. get orderId:
+curl -X GET --header "Accept: */*" "http://192.168.224.128:8082/orders/00000162ef0c9a61-0242ac1200090000"
+response body:
+{
+  "state": "APPROVED",
+  "orderTotal": {
+    "amount": 10
+  }
+}
+5. order fail test, create order exceed customer credit amount:
+view customer order history
+curl -X GET --header "Accept: */*" "http://192.168.224.128:8082/customers/00000162ef0bac72-0242ac1200070000"
+response body:
+{
+  "id": "00000162ef0bac72-0242ac1200070000",
+  "orders": {
+    "00000162ef0c9a61-0242ac1200090000": {
+      "state": "APPROVED",
+      "orderTotal": {
+        "amount": 10
+      }
+    },
+    "00000162ef0d852c-0242ac1200090001": {
+      "state": "REJECTED",
+      "orderTotal": {
+        "amount": 100
+      }
+    }
+  },
+  "name": "test01",
+  "creditLimit": {
+    "amount": 100
+  }
+}
