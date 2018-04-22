@@ -1,3 +1,9 @@
+# Eventuate test url
+http://18.218.84.183:8081/swagger-ui.html create customer; get customer 
+http://18.218.84.183:8083/swagger-ui.html create order; 
+http://18.218.84.183:8082/swagger-ui.html view customer history order; get order
+# Eventuate curl sample
+see eventuate/test-eventuate.txt
 # Eventuate sample
 https://github.com/eventuate-examples/eventuate-examples-java-customers-and-orders
 # Eventuate slide
