@@ -32,7 +32,7 @@ response body:
 {
   "orderId": "00000162ef0c9a61-0242ac1200090000"
 }
-4. get orderId:
+4. get order:
 curl -X GET --header "Accept: */*" "http://192.168.224.128:8082/orders/00000162ef0c9a61-0242ac1200090000"
 response body:
 {
