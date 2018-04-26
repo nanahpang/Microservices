@@ -1,11 +1,16 @@
+# Eventuate demo
+https://docs.google.com/document/d/16F6Zm_NIGKJGE1j2DMkEcWIHdgmALUyt0eaz4A89hhc/edit?usp=sharing
+
 # Eventuate test url
 http://18.218.84.183:8081/swagger-ui.html create customer; get customer 
-http://18.218.84.183:8083/swagger-ui.html create order; 
+
 http://18.218.84.183:8082/swagger-ui.html view customer history order; get order
+
+http://18.218.84.183:8083/swagger-ui.html create order; 
+
+http://18.218.84.183:8084/swagger-ui.html create shipment
 # Eventuate curl sample
 see eventuate/test-eventuate.txt
-# Eventuate sample
-https://github.com/eventuate-examples/eventuate-examples-java-customers-and-orders
 # Eventuate slide
 https://www.slideshare.net/chris.e.richardson/a-pattern-language-for-microservices-gluecon-2016
 # Presentation
