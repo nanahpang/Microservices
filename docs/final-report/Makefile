@@ -11,7 +11,7 @@
 # directory where the pdf will get built
 BUILDDIR := ./build
 # the name of the main .tex file
-BASENAME := acidbrian-report
+BASENAME := acidbrain-report
 MAINOBJ  := $(BASENAME).pdf
 MAINSRC  := $(BASENAME).tex
 #----------------------------------------------------------------------
@@ -56,6 +56,7 @@ $(MAINOBJ): $(MAINSRC) $(BUILDDIR)
 	-jobname=$(BUILDDIR)/$(BASENAME) \
 	$(MAINSRC)
 	mv $(BUILDDIR)/$(BASENAME).pdf .
+	open $(BASENAME).pdf
 
 $(BUILDDIR):
 	mkdir $(BUILDDIR)
