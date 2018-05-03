@@ -6,6 +6,14 @@
 
 A software application that applies Microservices architecture
 
+# Build and run eventuate final deliverable using Docker compose
+- go to final deliverable folder
+    - cd eventuate/final deliverable
+- build the application
+    - ./gradlew assemble -P eventuateDriver=local
+- export DOCKER_HOST_IP=<your machine ip>
+- launch application usin docker compose
+    - docker-compose -f docker-compose-eventuate-local-mysql.yml up -d
 ## TODOs
 
 - Nimo:
