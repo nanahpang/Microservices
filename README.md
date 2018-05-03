@@ -33,15 +33,15 @@ A software application that applies Microservices architecture
 https://docs.google.com/document/d/16F6Zm_NIGKJGE1j2DMkEcWIHdgmALUyt0eaz4A89hhc/edit?usp=sharing
 
 - Eventuate test urls
-    - http://18.218.84.183:8081/swagger-ui.html create customer; get customer
-    - http://18.218.84.183:8082/swagger-ui.html view customer history order; get order
-    - http://18.218.84.183:8083/swagger-ui.html create order;
-    - http://18.218.84.183:8084/swagger-ui.html create shipment
+    - http://18.188.167.88:8081/swagger-ui.html create customer; get customer
+    - http://18.188.167.88:8082/swagger-ui.html view customer history order; get order
+    - http://18.188.167.88:8083/swagger-ui.html create order;
+    - http://18.188.167.88:8084/swagger-ui.html create shipment
 - Eventuate curl sample
     - see eventuate/test-eventuate.txt
 - Axon test urls
-    - http://18.218.84.183:8091/swagger-ui.html create order
-    - http://18.218.84.183:8092/swagger-ui.html get order info, shipment info
+    - http://18.188.167.88:8091/swagger-ui.html create order
+    - http://18.188.167.88:8092/swagger-ui.html get order info, shipment info
 - Axon curl sample
     - successful scenario
 
