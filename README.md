@@ -39,6 +39,18 @@ https://docs.google.com/document/d/16F6Zm_NIGKJGE1j2DMkEcWIHdgmALUyt0eaz4A89hhc/
     - http://18.218.84.183:8084/swagger-ui.html create shipment
 - Eventuate curl sample
     - see eventuate/test-eventuate.txt
+- Axon test urls
+    - http://18.218.84.183:8091/swagger-ui.html create order
+    - http://18.218.84.183:8092/swagger-ui.html get order info, shipment info
+- Axon curl sample
+    - successful scenario
+
+curl -X POST -H "Content-Type: application/json" -d '{"productId":"testProduct", "comment":"testComment", "price":"20"}' http://18.218.84.183:8091/api/order
+
+    - failed shipment scenario
+
+curl -X POST -H "Content-Type: application/json" -d '{"productId":"failShipment", "comment":"testComment", "price":"20"}' http://18.218.84.183:8091/api/order
+
 - Eventuate slide:
 https://www.slideshare.net/chris.e.richardson/a-pattern-language-for-microservices-gluecon-2016
 - Presentation: https://docs.google.com/presentation/d/1UEZdzA1ftTM6Hj4YYuEuLEDKDaULurmaftdiqi5Ea2k/edit?usp=sharing
