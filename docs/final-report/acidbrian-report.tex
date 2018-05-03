@@ -1,0 +1,85 @@
+%-----------------------------------------------------------------------------
+%
+%               Template for sigplanconf LaTeX Class
+%
+% Name:         sigplanconf-template.tex
+%
+% Purpose:      A template for sigplanconf.cls, which is a LaTeX 2e class
+%               file for SIGPLAN conference proceedings.
+%
+% Guide:        Refer to "Author's Guide to the ACM SIGPLAN Class,"
+%               sigplanconf-guide.pdf
+%
+% Author:       Paul C. Anagnostopoulos
+%               Windfall Software
+%               978 371-2316
+%               paul@windfall.com
+%
+% Created:      15 February 2005
+%
+%-----------------------------------------------------------------------------
+
+% \documentclass[11pt, nocopyrightspace, numbers]{assets/sigplanconf}
+\documentclass[journal,11pt,onecolumn]{assets/IEEEtran}
+% \documentclass[journal,11pt,onecolumn,draftclsnofoot]{assets/IEEEtran}
+
+% The following \documentclass options may be useful:
+
+% preprint      Remove this option only once the paper is in final form.
+% 10pt          To set in 10-point type instead of 9-point.
+% 11pt          To set in 11-point type instead of 9-point.
+% numbers       To obtain numeric citation style instead of author/year.
+
+\newcommand{\nocaptionrule}{ }
+% \usepackage{caption} % http://ctan.org/pkg/caption
+
+
+\usepackage{nimopaper}
+
+\begin{document}
+
+\title{\textsc{ACIDBrain}: Maintaining data consistency in microservices}
+
+\author{
+    \IEEEauthorblockN{
+        Nana Pang\IEEEauthorrefmark{1},
+        Wode ``Nimo'' Ni \IEEEauthorrefmark{2}, and
+        Xin Chen \IEEEauthorrefmark{3}
+    }
+
+    \IEEEauthorblockA{
+        Columbia University\\
+        Email:
+        \IEEEauthorrefmark{1}np2630@columbia.edu,
+        \IEEEauthorrefmark{2}wn2155@columbia.edu,
+        \IEEEauthorrefmark{3}xc2409@columbia.edu
+    }
+}
+
+\maketitle
+
+
+\begin{abstract}
+    As software systems become more distributed and larger in scale nowadays, there is a growing need for novel architectures that are modularized, flexible, and scalable. Microservice architecture emerged as a popular software architecture where developers divide a large application into small, self-contained components (“services”). Although the separation significantly increases flexibility and reduces difficulty in development, maintaining data consistency across these isolated databases can still be be challenging. Our project targets maintaining data consistency among distributed microservices. To maintain data consistency, an event driven model called \textbf{Saga}\cite{garcia1987sagas} is often used to keep track of the data sources of each transaction. In this project, we investigate two predominant event sourcing frameworks: \textit{Eventuate} and \textit{Axon}, from an \textbf{end-user’s perspective}. We experiment with both of them by building data consistency guarantees on a dummy microservice system, and analyze the effectiveness of the two frameworks both quantitatively and qualitatively.
+\end{abstract}
+
+
+%------------------------------------------------------------------------------
+% Content
+
+\section{Introduction}
+\input{intro.tex}
+
+\section{Conclusion}
+\input{conclusion.tex}
+
+%------------------------------------------------------------------------------
+% bibliography
+
+\FloatBarrier{}
+% prevent figures breaking the reference section
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+\end{document}
