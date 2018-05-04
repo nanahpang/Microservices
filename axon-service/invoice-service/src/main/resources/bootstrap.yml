@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: invoice-service
+
+  #H2DB
+  datasource:
+    url: jdbc:h2:file:~/workspace/invoiceDB;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
+    username: test
+    password: test
+    driverClassName: org.h2.Driver
+
+  rabbitmq:
+    user: guest
+    password: guest
+    host: ${RABBITMQ_HOST:127.0.0.1}
+    port: 5672
+
+# HTTP Server
+server:
+  port: 8082   # HTTP (Tomcat) port
+
+axon:
+  amqp:
+    exchange: InvoiceEvents
+
+  distributed:
+    enabled: true
+
