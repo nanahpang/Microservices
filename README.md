@@ -49,3 +49,15 @@ https://docs.google.com/document/d/16F6Zm_NIGKJGE1j2DMkEcWIHdgmALUyt0eaz4A89hhc/
 - Eventuate slide:
 https://www.slideshare.net/chris.e.richardson/a-pattern-language-for-microservices-gluecon-2016
 - Presentation: https://docs.google.com/presentation/d/1UEZdzA1ftTM6Hj4YYuEuLEDKDaULurmaftdiqi5Ea2k/edit?usp=sharing
+
+## Build
+- Axon:
+  cd into axon-service directory:
+    1. build
+        * `mvn clean install`
+
+    2. start
+        * `docker-compose up -d --build`
+        
+    3. stop
+        * `docker-compose down --remove-orphans`
