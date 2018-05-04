@@ -20,8 +20,8 @@
 %-----------------------------------------------------------------------------
 
 % \documentclass[11pt, nocopyrightspace, numbers]{assets/sigplanconf}
-\documentclass[journal,11pt,onecolumn]{assets/IEEEtran}
-% \documentclass[journal,11pt,onecolumn,draftclsnofoot]{assets/IEEEtran}
+% \documentclass[journal,11pt,onecolumn]{assets/IEEEtran}
+\documentclass[journal,11pt,onecolumn,draftclsnofoot]{assets/IEEEtran}
 
 % The following \documentclass options may be useful:
 
@@ -31,6 +31,7 @@
 % numbers       To obtain numeric citation style instead of author/year.
 
 \newcommand{\nocaptionrule}{ }
+\usepackage{soul}
 % \usepackage{caption} % http://ctan.org/pkg/caption
 
 
@@ -72,6 +73,9 @@
 
 \section{Background}
 \input{background.tex}
+
+\section{Existing Implementation of Sagas}
+\input{impl.tex}
 
 \section{Conclusion}
 \input{conclusion.tex}
