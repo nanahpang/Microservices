@@ -14,6 +14,17 @@ A software application that applies Microservices architecture
 - export DOCKER_HOST_IP= your local machine ip
 - launch application usin docker compose
     - docker-compose -f docker-compose-eventuate-local-mysql.yml up -d
+
+# Build and run Axon final deliverable using Docker compose
+- cd into axon-service directory:
+    -build
+        * `mvn clean install`
+
+    -start
+        * `docker-compose up -d --build`
+        
+    -stop
+        * `docker-compose down --remove-orphans`
 ## TODOs
 
 - Nimo:
@@ -50,14 +61,4 @@ https://docs.google.com/document/d/16F6Zm_NIGKJGE1j2DMkEcWIHdgmALUyt0eaz4A89hhc/
 https://www.slideshare.net/chris.e.richardson/a-pattern-language-for-microservices-gluecon-2016
 - Presentation: https://docs.google.com/presentation/d/1UEZdzA1ftTM6Hj4YYuEuLEDKDaULurmaftdiqi5Ea2k/edit?usp=sharing
 
-## Build
-- Axon:
-  cd into axon-service directory:
-    1. build
-        * `mvn clean install`
 
-    2. start
-        * `docker-compose up -d --build`
-        
-    3. stop
-        * `docker-compose down --remove-orphans`
