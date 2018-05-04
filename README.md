@@ -18,9 +18,7 @@ A software application that applies Microservices architecture
 # Build and run Axon final deliverable using Docker compose
 - cd into axon-service directory:
     -build: `mvn clean install`
-
     -start: `docker-compose up -d --build`
-        
     -stop: `docker-compose down --remove-orphans`
 ## TODOs
 
