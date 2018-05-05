@@ -52,8 +52,6 @@ The ACIDBrain team investigates ways to maintain data consistency in microservic
 - Eventuate demo:
 https://docs.google.com/document/d/16F6Zm_NIGKJGE1j2DMkEcWIHdgmALUyt0eaz4A89hhc/edit?usp=sharing
 
-- Eventuate slide:
-https://www.slideshare.net/chris.e.richardson/a-pattern-language-for-microservices-gluecon-2016
 - Presentation: https://docs.google.com/presentation/d/1UEZdzA1ftTM6Hj4YYuEuLEDKDaULurmaftdiqi5Ea2k/edit?usp=sharing
 
 ### Tutorials
@@ -61,3 +59,5 @@ https://www.slideshare.net/chris.e.richardson/a-pattern-language-for-microservic
 - Adding docker to AWS: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html
 - Spring project example repo: https://github.com/cloudframeworks-apigateway/springdata
 - Eventuate example: http://eventuate.io/exampleapps.html
+- Eventuate slides:
+https://www.slideshare.net/chris.e.richardson/a-pattern-language-for-microservices-gluecon-2016
