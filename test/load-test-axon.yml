@@ -1,0 +1,20 @@
+config:
+  processor: "./load-test-axon.js"
+  environments:
+    local:
+      target: "http://127.0.0.1:8081"
+      phases:
+        - duration: 10
+          arrivalRate: 2
+    remote:
+      target: "http://18.217.95.118:8081"
+      phases:
+        - duration: 120
+          arrivalRate: 100
+scenarios:
+  - name: "Axon: Order"
+    flow:
+      - post:
+          url: "/api/order"
+          beforeRequest: "createOrder"
+          afterResponse: "logResponse"

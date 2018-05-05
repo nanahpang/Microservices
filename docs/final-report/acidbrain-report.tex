@@ -20,8 +20,8 @@
 %-----------------------------------------------------------------------------
 
 % \documentclass[11pt, nocopyrightspace, numbers]{assets/sigplanconf}
-% \documentclass[journal,11pt,onecolumn]{assets/IEEEtran}
-\documentclass[journal,11pt,onecolumn,draftclsnofoot]{assets/IEEEtran}
+\documentclass[11pt,onecolumn]{assets/IEEEtran}
+% \documentclass[journal,11pt,onecolumn,draftclsnofoot]{assets/IEEEtran}
 
 % The following \documentclass options may be useful:
 
@@ -34,8 +34,13 @@
 \usepackage{soul}
 % \usepackage{caption} % http://ctan.org/pkg/caption
 
+\usepackage{enumerate}% http://ctan.org/pkg/enumerate
+\usepackage{caption}% http://ctan.org/pkg/caption
+\usepackage{array}
+\newcolumntype{L}{>{\arraybackslash}m{7cm}}
 
 \usepackage{nimopaper}
+
 
 \begin{document}
 
@@ -77,8 +82,19 @@
 \section{Existing Implementation of Sagas}
 \input{impl.tex}
 
+\section{Method}
+\input{method.tex}
+
+\section{Results}
+\input{result.tex}
+
+\section{Discussion}
+\input{discuss.tex}
+
 \section{Conclusion}
 \input{conclusion.tex}
+
+
 
 %------------------------------------------------------------------------------
 % bibliography
@@ -88,5 +104,12 @@
 
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
+
+%------------------------------------------------------------------------------
+% appendix
+
+\appendix
+
+\input{appendix.tex}
 
 \end{document}

@@ -1,0 +1,34 @@
+Summary report @ 21:14:04(-0400) 2018-05-04
+  Scenarios launched:  6000
+  Scenarios completed: 6000
+  Requests completed:  6000
+  RPS sent: 48.17
+  Request latency:
+    min: 67.4
+    max: 13080.2
+    median: 229.5
+    p95: 5420.6
+    p99: 7558.9
+  Scenario counts:
+    Eventuate: half-success and half-reject purchases: 6000 (100%)
+  Codes:
+    200: 6000
+---------------------------------------------
+
+All virtual users finished
+Summary report @ 21:33:04(-0400) 2018-05-04
+  Scenarios launched:  8400
+  Scenarios completed: 8400
+  Requests completed:  8400
+  RPS sent: 69.67
+  Request latency:
+    min: 66.1
+    max: 9554.3
+    median: 345.6
+    p95: 3601.3
+    p99: 5164.8
+  Scenario counts:
+    Eventuate: half-success and half-reject purchases: 8400 (100%)
+  Codes:
+    200: 8241
+    500: 159

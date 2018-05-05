@@ -1,0 +1,20 @@
+length: 120s
+
+All virtual users finished
+Summary report @ 17:23:01(-0400) 2018-05-04
+  Scenarios launched:  12000
+  Scenarios completed: 12000
+  Requests completed:  12000
+  RPS sent: 99.5
+  Request latency:
+    min: 51.3
+    max: 1400.3
+    median: 58.4
+    p95: 180.3
+    p99: 347.1
+  Scenario counts:
+    Axon: Order: 12000 (100%)
+  Codes:
+    200: 12000
+
+---------------------------------------------

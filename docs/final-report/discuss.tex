@@ -1,0 +1,74 @@
+\subsection{Comparing Axon and Eventuate}
+
+\begin{table}[H]
+\begin{center}
+  \begin{tabular}{ | m{2cm} | L | L | }
+    \hline
+    & Axon & Eventuate \\
+
+    \hline
+    Aggregate &
+    Use \texttt{@Aggregate} annotation in the beginning of class. Place  \texttt{@Aggregate\-Identifier} on top of unique identifier for this aggregate. Aggregate contains \texttt{@commandHandler} annotation and \texttt{@eventSourcingHandler} and overload apply method to update entity state.  &
+    Extend  \texttt{ReflectiveMutableCommand\-ProcessingAggregate<aggregate, command>} class to define aggregate. Overload process and apply method in aggregate update entity state. \\
+
+    \hline
+    Event &
+    No class to define events. Prototypes in core api by Kotlin &
+    Use \texttt{ @EventEntity(event=event\_n\-ame) } annotation in Event class \\
+
+    \hline
+    Command &
+    User defined command class which uses \texttt{@TargetAggregate\-Identifier} to connect with Aggregate &
+    Extend  \texttt{Command class} to define command \\
+
+    \hline
+    Saga &
+    Is a special type of Event Listener that manages a business transaction. Sagas are classes that define one or more \texttt{@SagaEventHandler} methods. All Sagas must implement the Saga interface. &
+    Use \texttt{@EventSubscriber} annotation to define event listener in each service. Use \texttt{@eventhandler} method annotation to define transaction message. \\
+    \hline
+
+  \end{tabular}
+\end{center}
+\caption{Comparison between Axon and Eventuate}
+\label{table:compare}
+\end{table}
+
+As shown in Table \ref{table:compare}, we can find some syntactic difference between Axon and Eventuate. Axon requires users to define their own command using \texttt{@TargetAggregateIdentifier} annotation corresponding to \texttt{Aggregate} identifier. Therefore, command and aggregate are combined using annotation in Axon. Eventuate has much clearer structural architecture. For instance, event, entity and command are units defined as generic abstract class in Eventuate. User could implement them without knowing \texttt{Aggregate} definition. Therefore, command is coupling with \texttt{Aggregate} in Axon, while decoupling in Eventuate. So, Axon has more complicated syntax and lower decoupling ability.
+Also, since Axon and Eventuate are primarily CQRS based frameworks, they require some additional handling for the saga execution. In Axon, saga is still the aggregate which means that it consumes commands and produces events. This may be an unwanted overhead when the application does not follow the CQRS domain pattern. The same applies to Eventuate but as the communication is shadowed through the messaging channels it does not force the programmer to follow CQRS. Instead, event handler methods in command service and query service are defined separately in Eventuate, which provides more flexibility of system architecture. So, we can say that Axon is more fixed while Eventuate is more flexible.
+
+\subsection{Prospective User Community}
+\hl{\textbf{Target user community and value added}}
+
+The user community of Microservices is large and keeps growing. As we presented, Microservices has lots of advantages. Even though Microservices architecture shares ideas with other models such as Service-Oriented Architecture, it has attracted much attention from big companies such as Amazon, Uber, and Netflix. Thus, for software developers, learning and implementing Microservices architecture could be a increasingly popular requirement in the future.
+
+To apply Microservices in real-world products, we need to deal with tradeoffs of such a decentralized system. Importantly, data consistency across distributed databases is vital for many business systems. In certain systems, it is conceptually and realistically difficult to perfectly divide your software into completely independent and isolated services. As a result, data transactions that span two or more services are inevitable in such cases. As the amount of Microservices architecture increases, the importance of maintaining data consistency in Microservices will be increasing as well.
+
+\hl{\textbf{What do your results show that was not already known}}
+
+\hl{\textbf{How members of the user community will find out about your study}}
+
+\hl{\textbf{Accessing our results}}
+
+Since the concept of microservice is relatively young (the term was first used in 2011 \cite{wiki:micro}, the topic of maintaining data consistency is under-researched in the academia and implemented mostly in an ad-hoc fashion. Our study investigated two of the few existing software frameworks that aim to achieve data consistency and work well with systems of microservice architecture. More importantly, instead of evaluating from an implementer’s point of view such as \cite{comparison, stefanko}, we experiment with these frameworks as end-users and attempt to evaluate the usability of them both quantitatively and qualitatively. Therefore, we believe that the results from this study can be shared to the user community of Axon, Eventuate, or any frameworks alike, and provide a reference point for choosing one of them. Our GitHub repo\footnote{https://github.com/nanahpang/Microservices \hl{project deliverable}} contains original documents and prototypes that we built, and it is freely accessible to everyone.
+
+\subsection{\textsc{ACIDBrain} Team Comments}
+
+\subsubsection{Nana}
+\begin{itemize}
+    \item \textbf{Responsibilities}:Implement original prototypes using Java and Spring. Implement prototype with customer, order, shipment and query services by using Eventuate framework. Test Api through Swagger UI and deploy application on AWS.
+    \item \textbf{Comments}: At the beginning of development, I found  some methodology such as Saga pattern, CQRS view and event sourcing are difficult to define or distinguish. Online resource of these concept is incomplete and vague. During the implementation process, I stuck at the configuration and building part for a long time, since I am not familiar with Spring cloud and Docker which is used by Eventuate. Therefore, I chose to study from an existed sample Eventuate provided, analyzing its code structure and labeling functionality within each modules. Since I have experienced Java and Spring development before, I started to make some progress. After implement the shipment service, I realize that Eventuate doesn’t need compensation function as I assumed because it maintains entity status by logical checking and only apply the eventually consistent event in event store. All the event states are remained unchanged after initialization and compensation is handled by adding new event such as order-approve-event and order-reject-event after order-created-event.This feature has both pros and cons. It simplifies the complexity of understanding system workflow but adds extra nodes in code implementation. But it is always difficult to find a perfect solution. Every method has its pros and cons. Therefore, in project report, I have discussed pros and cons of Eventuate and compared usability of Eventuate and Axon. This topic is related to my midterm paper. I didn’t realize the data consistency issue in Microservices architecture until presentation. It is my pleasure to learn more about Microservices and implement a system in Microservices. I hope our project could be helpful to other end-users who are interested in software architecture as well.
+\end{itemize}
+
+\subsubsection{Nimo}
+\begin{itemize}
+    \item \textbf{Responsibilities}: Maintaining AWS server and docker, load-test scripting, (part of) implementation of original prototype, development statistics gathering, report drafting, and presentations.
+    \item \textbf{Comments}: My software engineering experience has primarily been in academic settings. Therefore, reading about and experimenting with newer technologies from the industry was eye-opening to me. Interestingly, patterns such as microservices become popular because of not just its technical benefits, but also faster deployment and more distributed development model, both being more business and human related concerns. One of the first problem that we encountered was the lack of strict definitions of many terms such as event sourcing, sagas, or microservices, which is expected given that these terms are not used rigorously. Later on, we experienced roadblocks when setting up the development environment using AWS, docker, Maven, and other tools. The technical overhead significantly impaired the complexity of our prototype system and the later improvement on them using the two frameworks. Since both Axon and Eventuate are designed to solve issues in large, complex systems, it might be more reasonable to experiment them  on a larger system with more services and significantly more complex and coupled business logic, which we unfortunately did not have. Finally, some comments on usability of frameworks: Frameworks exists to ease software development, among many other reasons. As we demonstrated in the project, there are still highly visible flaws in the design of the APIs of both Eventuate and Axon. There is always a human-factor in the design of frameworks. As API usability \cite{daughtry2009api} gets more attention in the field of software engineering and Human-Computer Interaction, more principles and guidelines should be developed for better design of them.
+
+\end{itemize}
+
+\subsubsection{Xin}
+
+\begin{itemize}
+    \item \textbf{Responsibilities}: Learning and implementing original prototypes using Axon framework. Modify original prototypes to adapt axon environment. Test order, invoice, shipment services by posting and getting requests on Swagger. Axon development time statistics tracking and documenting obstacles.
+    \item \textbf{Comments}: I have little preliminary experience in Spring, so I spend fairly large amount of time in learning Spring structure. There were a lot of axon-specified annotations to add in my code. Although axon is a more mature framework than eventuate, there is little small-scale complete code samples. Building with axon requires a throughout understanding of CQRS architecture, and this is where I harvested the most from this project. With reading other axon project codes, along with axon official guideline, I finally got the rationale of axon logics and got the code running. I can say that axon is not a very user friendly framework as users need to implement axon interfaces. However, a developer with system level development experience may have a different perspective. Before this course, I always heard things about microservices but never had a change to work on a project. Knowing the technique of how to keep data consistency between microservices, I can transfer this skill set further into distributed systems.
+\end{itemize}

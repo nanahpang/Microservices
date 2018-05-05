@@ -2,9 +2,7 @@
 // load-test.js
 //
 module.exports = {
-    createCustomer: createCustomer,
     createOrder: createOrder,
-    logCustomerID: logCustomerID,
     logResponse: logResponse
 }
 

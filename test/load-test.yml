@@ -21,14 +21,24 @@ config:
         - duration: 1200
           arrivalRate: 20
 scenarios:
-  - name: "Eventuate: Create user and check if created"
+  - name: "Axon: Order"
     flow:
       - post:
-          url: "/customers"
-          beforeRequest: "createCustomer"
-          afterResponse: "logCustomerID"
-          capture:
-            json: "$.customerId"
-            as: "id"
-      - get:
-          url: "/customers/{{ id }}"
+        url: "/api/order"
+        beforeRequest: "createOrder"
+        afterResponse: "logResponse"
+        capture:
+          header: ""
+          as: "id"
+
+  # - name: "Eventuate: Create user and check if created"
+  #   flow:
+  #     - post:
+  #         url: "/customers"
+  #         beforeRequest: "createCustomer"
+  #         afterResponse: "logCustomerID"
+  #         capture:
+  #           json: "$.customerId"
+  #           as: "id"
+  #     - get:
+  #         url: "/customers/{{ id }}"

@@ -11,3 +11,7 @@ TODO
 # References
 
 - A useful tutorial: https://www.sharelatex.com/learn/Management_in_a_large_project
+
+- imgs:
+    - eventuate:
+        assets/README-d8970.png

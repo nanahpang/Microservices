@@ -2,23 +2,23 @@
 // load-test.js
 //
 module.exports = {
-    createCustomer: createCustomer,
+    // createCustomer: createCustomer,
+    // logCustomerID: logCustomerID,
     createOrder: createOrder,
-    logCustomerID: logCustomerID,
     logResponse: logResponse
 }
 
 function createOrder(requestParams, context, ee, next) {
 
     requestParams.json = {
-        "comment": "load test",
-        "price": Math.floor(Math.random() * 1001),
-        "productId": makeid()
+        "customerId": "000001632de8f40c-0242ac1200060000",
+        "orderTotal": {
+            "amount": 1
+        }
     };
 
     return next(); // MUST be called for the scenario to continue
 }
-
 
 function logResponse(requestParams, response, context, ee, next) {
     console.log(response.body);

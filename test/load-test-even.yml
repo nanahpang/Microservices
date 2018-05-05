@@ -1,0 +1,25 @@
+config:
+  processor: "./load-test-even.js"
+  environments:
+    local:
+      target: "http://127.0.0.1:8081"
+      phases:
+        - duration: 1
+          arrivalRate: 2
+    remote:
+      target: "http://18.188.46.123:8083"
+      phases:
+        - duration: 120
+          arrivalRate: 70
+scenarios:
+  - name: "Eventuate: half-success and half-reject purchases"
+    flow:
+      - post:
+          url: "/orders"
+          beforeRequest: "createOrder"
+          afterResponse: "logResponse"
+          capture:
+            json: "$.orderId"
+            as: "id"
+      # - get:
+      #     url: "/customers/{{ id }}"
